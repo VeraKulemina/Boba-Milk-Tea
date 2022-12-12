@@ -1,0 +1,2 @@
+class Boba < ApplicationRecord
+end

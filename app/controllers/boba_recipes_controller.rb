@@ -1,0 +1,2 @@
+class BobaRecipesController < ApplicationController
+end

@@ -10,7 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_201418) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
+  create_table "boba_recipes", force: :cascade do |t|
+    t.integer "boba_id", null: false
+    t.integer "ingredient_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boba_id"], name: "index_boba_recipes_on_boba_id"
+    t.index ["ingredient_id"], name: "index_boba_recipes_on_ingredient_id"
+  end
+
+  create_table "bobas", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_lists", force: :cascade do |t|
+    t.integer "boba_id", null: false
+    t.integer "user_id", null: false
+    t.integer "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boba_id"], name: "index_order_lists_on_boba_id"
+    t.index ["order_id"], name: "index_order_lists_on_order_id"
+    t.index ["user_id"], name: "index_order_lists_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date "date"
+    t.string "comment"
+    t.integer "boba_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boba_id"], name: "index_orders_on_boba_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -19,4 +63,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_201418) do
     t.string "last_name"
   end
 
+  add_foreign_key "boba_recipes", "bobas"
+  add_foreign_key "boba_recipes", "ingredients"
+  add_foreign_key "order_lists", "bobas"
+  add_foreign_key "order_lists", "orders"
+  add_foreign_key "order_lists", "users"
+  add_foreign_key "orders", "bobas"
 end
