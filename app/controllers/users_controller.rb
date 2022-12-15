@@ -12,7 +12,7 @@ class UsersController < ApplicationController
      session[:user_id] = user.id
      render json: user, status: :created
    else
-     render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+     render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
    end
  end
 
@@ -27,6 +27,16 @@ class UsersController < ApplicationController
    head :no_content
  end
 
+ def update
+  user = User.find(params[:id])
+        if user
+          user.update(user_params1)
+          render json: user
+        else
+          render json: { error: "User not found" }, status: :not_found
+        end
+ end
+
  private
 
  def authorize
@@ -34,6 +44,10 @@ class UsersController < ApplicationController
  end
 
  def user_params
-   params.permit(:username, :password, :password_confirmation, :img, :email)
+   params.require(:user).permit(:username, :password, :avatar, :email, :first_name, :last_name)
  end
+
+ def user_params1
+  params.require(:user).permit(:username)
+end
 end
