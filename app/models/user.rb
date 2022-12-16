@@ -16,7 +16,7 @@ class User < ApplicationRecord
     # VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}\z/
   
     # # Validate the presence and format of the password attribute
-    validates :password, presence: true
+    # validates :password, presence: true
     # , format: { with: VALID_PASSWORD_REGEX }
 
   end

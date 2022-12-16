@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authorize, only: [:show]
+  wrap_parameters format: []
 
   def index
    render json: User.all
@@ -28,9 +29,10 @@ class UsersController < ApplicationController
  end
 
  def update
+  # binding.break
   user = User.find(params[:id])
         if user
-          user.update(user_params1)
+          user.update(user_params)
           render json: user
         else
           render json: { error: "User not found" }, status: :not_found
@@ -44,10 +46,7 @@ class UsersController < ApplicationController
  end
 
  def user_params
-   params.require(:user).permit(:username, :password, :avatar, :email, :first_name, :last_name)
+   params.permit(:id, :username, :password, :avatar, :email, :first_name, :last_name)
  end
 
- def user_params1
-  params.require(:user).permit(:username)
-end
 end

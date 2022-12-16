@@ -1,7 +1,7 @@
 import React from 'react';
 import BobaCard from './BobaCard';
 
-function BobaRender({bobas}) {
+function BobaRender({bobas, handleOrder}) {
     const handleBobas = bobas.map((boba) => (
      <BobaCard 
     key = {boba.id}
@@ -9,6 +9,7 @@ function BobaRender({bobas}) {
     name={boba.name}
     price={boba.price}
     image={boba.image}
+    handleOrder={handleOrder}
     />
     ))
     

@@ -1,6 +1,6 @@
 import React from "react";
 
-function BobaCard({id, name, price, image}) {
+function BobaCard({id, name, price, image, handleOrder}) {
     return(
         <li className="card">
           <img src={image} alt={name} />
@@ -11,7 +11,7 @@ function BobaCard({id, name, price, image}) {
             <option>2</option>
             <option>3</option>
           </select>
-          <button>ADD TO CART</button>
+          <button onClick={() => handleOrder(id)}>ADD TO CART</button>
           </li>
           );
 

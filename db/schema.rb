@@ -22,6 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
     t.index ["order_id"], name: "index_boba_orders_on_order_id"
   end
 
+  create_table "boba_recipes", force: :cascade do |t|
+    t.integer "boba_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boba_id"], name: "index_boba_recipes_on_boba_id"
+    t.index ["ingredient_id"], name: "index_boba_recipes_on_ingredient_id"
+  end
+
   create_table "bobas", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -55,5 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
 
   add_foreign_key "boba_orders", "bobas"
   add_foreign_key "boba_orders", "orders"
+  add_foreign_key "boba_recipes", "bobas"
+  add_foreign_key "boba_recipes", "ingredients"
   add_foreign_key "orders", "users"
 end

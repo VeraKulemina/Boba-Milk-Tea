@@ -24,7 +24,10 @@ function NavBar({ user, setUser }) {
         {user ? (
           <div className="container">
             <NavLink className="link" to="/bobas">Menu</NavLink>
-            <NavLink className="link" to="/user">{user.avatar}</NavLink>
+            <NavLink className="link" to="/order">My Order</NavLink>
+            <NavLink className="link" to="/user">
+            <img id="id" src={user.avatar} alt="current user"/>
+            </NavLink>
           <button onClick={handleLogoutClick}>Logout</button>
           </div>
         ) : (

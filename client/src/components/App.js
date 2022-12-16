@@ -6,9 +6,43 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Bobas from "./Bobas.js";
 import User from "./User";
+import Order from "./Order.js";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [bobas, setBobas] = useState([]);
+  const [order, setOrder] = useState([]);
+
+
+    useEffect(() => {
+        fetch('/bobas')
+            .then((r) => r.json())
+            .then(bobas => setBobas(bobas))
+    }, [])
+
+
+  function handleOrder(id) {
+    console.log(id)
+    const bobaInOrder = bobas.find(
+      (boba) => boba.id === id
+    );
+    console.log(bobaInOrder)
+    if (bobaInOrder) {
+      setOrder([...order, bobaInOrder]);
+    }
+  }
+
+  console.log(order);
+
+
+
+    
+      function handleRemoveBobaFromOrder(bobaRemove) {
+        setOrder((order) =>
+          order.filter((boba) => boba.id !== bobaRemove.id)
+        );
+      }
+
 
   useEffect(() => {
     // auto-login
@@ -29,10 +63,13 @@ function App() {
               <Home user={user}/>
             </Route>
             <Route path="/bobas">
-              <Bobas/>
+              <Bobas handleOrder={handleOrder}/>
             </Route>
             <Route exact path="/user">
-              <User user={user}/>
+              <User user={user}setUser={setUser}/>
+            </Route>
+            <Route exect path="/order">
+              <Order onremoveBOba={handleRemoveBobaFromOrder} order= {order}/>
             </Route>
           </Switch>
         ) : (
