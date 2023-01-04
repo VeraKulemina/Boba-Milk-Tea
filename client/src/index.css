@@ -1,22 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "yeyey";
+  color: #f47185;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 900px;
 }
 
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+    color: #f47185;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "yeyey";
+  color: #ffb6c1;
   /* border-bottom: 1px solid #ccc; */
 }
 
@@ -24,12 +41,11 @@ header a,
 header button {
   font-size: 1rem;
   display: inline-block;
-  /* background-color: #fff8e7; */
   border: 1px solid black;
   margin: 1rem;
   padding: 1rem;
   text-decoration: none;
-  color: black;
+  color: #f35b72;
   cursor: pointer;
 }
 
@@ -53,27 +69,37 @@ form input {
 
 form button[type="submit"] {
   width: 40%;
+  color:#f47185;
 }
 
 .card img {
   /* width: 100%; */
-  height: 250px;
-  width: 200px;
+  height: 65px;
+  width: 50px;
+  /* position: absolute; */
+  right: 2px;
+  top: 10px;
+  
 }
 
 .card {
-  width: 250px;
+  font-family: "yeyey";
+  color: #f47185;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* column-count: 5; */
+  column-gap: 20px;
+  width: 350px;
+  height: 100px;
   padding: 20px;
-  border-radius:10px;
-  box-shadow: 0 0 15px 7px grey;
+  /* border-radius:10px; */
   align-items: center;
-  z-index: 2;
+  z-index: 1;
   list-style: none;
   margin: 1rem;
   /* border: px solid brown;
   background-color: #fff8e7; */
   float: left;
-  
 }
 
 .h1 {
@@ -81,11 +107,11 @@ form button[type="submit"] {
   right: 10px;
   top: 50px;
 }
-.card img {
+/* .card img {
   display: block;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
 .card3 img {
   display: block;
@@ -97,7 +123,6 @@ form button[type="submit"] {
   width: 450px;
   padding: 20px;
   border-radius:10px;
-  box-shadow: 0 0 15px 7px grey;
   align-items: center;
   z-index: 2;
   list-style: none;
@@ -126,3 +151,256 @@ form button[type="submit"] {
   width: 200px;
   height: 150px;
 }
+
+.cart {
+  /* display: flex; */
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.cart-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cart-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  
+}
+
+.cart-text {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.cart-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-button:hover {
+  background-color: #3e8e41;
+}
+
+#red{
+  background-color: rgb(249, 110, 110);
+}
+
+.order_image {
+  width: 40px;
+  height: 60px;
+  float: left;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  border: 1px solid black; /* Two columns, with the first one taking up 1fr and the second one taking up 3fr */
+}
+
+.card p {
+  margin: 0; /* Remove space above and below each p element */
+}
+
+.card p:first-child {
+  margin-bottom: 2px; /* Add space between name and price */
+}
+
+
+.card {
+  flex: 0 0 50%; /* Take up 50% of the available width */
+}
+
+.card {
+  
+  border: 1px solid #ccc; /* Add a border to the card */
+  background-color: #fff; /* Set the background color of the card */
+  align-items: center; /* Center the content inside the card */
+  padding: 20px; /* Add padding to the card */
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Three columns of equal width */
+}
+
+header div {
+  display: flex; /* Display child elements as a row */
+  align-items: center; /* Center child elements vertically */
+}
+
+#pink {
+  /* Basic button styles */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #ffb6c1;
+  transform: translateY(-4px);
+  position: relative;
+  z-index: 3;
+}
+
+#pink:hover {
+  /* Add a hover effect */
+  box-: 0 6px 8px rgba(0, 0, 0, 0.1), 0 3px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.button{
+font-family: "yeyey";
+color: #f47185;
+background-color: white;
+}
+
+#coffee-bar {
+  max-height: 200px;
+}
+
+#coffee-bar img {
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.boba-render {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  align-items: left;
+  height: 750px;
+}
+
+.cardOpen {
+  z-index: 4;
+  border: solid;
+  border-color: black;
+  position: fixed;
+  top: 10vw;
+  left: 35vw;
+  height: 520px;
+  width: 500px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#cardOpen {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  top: 110px;
+  left: 6em;
+}
+
+#pinko {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #ffb6c1; 
+  transform: translateY(-4px);
+  position: relative;
+  top: 350px;
+  left: 8em;
+}
+
+#name {
+  position: fixed;
+  top: 140px;
+  width: 400px;
+  word-wrap: break-word;
+  left: 550px;
+}
+
+.overflow-scroll {
+  position: fixed;
+  top: 15vw;
+  left: 38vw;
+  }
+
+  #pinko:hover {
+    box-: 0 6px 8px rgba(0, 0, 0, 0.1), 0 3px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  #card123 {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  #cart-title12 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  select {
+    border: none;
+    background-color: #ffc0cb;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #ffc0cb;
+  }
+  
+  option {
+    background-color: #ffc0cb;
+    color: #fff;
+  }
+  
+  button {
+    border: none;
+    background-color: #ffc0cb;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #fff;
+    color: #ffc0cb;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(2px);
+  } 
+
+  .cart-title32 {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+  

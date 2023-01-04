@@ -9,11 +9,11 @@ function Search({setSearchTerm, searchTerm}) {
 
   return (
     <div className="searchbar" >
-      <label htmlFor="search" >Search Art:</label>
+      <label htmlFor="search" >Search:</label>
       <input
         type="text"
         id="search"
-        placeholder="Type a name to search..."
+        placeholder="type to search"
         value={searchTerm}
         onChange={handleSubmit} 
       />

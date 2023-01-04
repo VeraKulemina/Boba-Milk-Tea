@@ -1,13 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import UserOrders from './UserOrders.js';
 
-function User({ user, setUser }) {
-  const [username, setUsername] = useState("");
-  const [first_name, setFirstname] = useState("");
-  const [last_name, setLastname] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [email, setEmail] = useState("");
-  const [id, setId] = useState();
-  const [updatedUser, setUpdatedUser] = useState("");
+
+
+function User({ user, setUser, submitBobasInOrder, order}) {
+  const [username, setUsername] = useState(user.username);
+  const [first_name, setFirstname] = useState(user.first_name);
+  const [last_name, setLastname] = useState(user.last_name);
+  const [avatar, setAvatar] = useState(user.avatar);
+  const [email, setEmail] = useState(user.email);
+  const [showDetails, setShowDetails] = useState(false);
+  const [users, setUsers] = useState([]);
+  
+
+  useEffect(() => {
+    fetch('/users')
+        .then((r) => r.json())
+        .then(users => setUsers(users))
+}, []);
+
+function handleDelete(){
+  fetch(`users/${user.id}`, {
+      method: "DELETE",
+  })
+  handleDeleteUser(user.id);
+  window.location.reload();
+};
+
+
+
+function handleDeleteUser(id) {
+    const newUsersList = users.filter((user) => 
+    user.id !== id)
+    setUsers(newUsersList)
+}
+    
+  function handleClick() {
+    setShowDetails((showDetails) => !showDetails);
+  }
 
 
   function handleUser(result) {
@@ -16,7 +46,7 @@ function User({ user, setUser }) {
 
 const handleInputChange = (e) => {
   console.log(e.target.value)
-  setUpdatedUser(e.target.value)
+  setUsername(e.target.value)
 };
 
 const handleInputChange1 = (e) => {
@@ -48,7 +78,7 @@ const handleInputChange4 = (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: updatedUser,
+        username: username,
         last_name: last_name,
         first_name: first_name,
         avatar: avatar,
@@ -57,13 +87,7 @@ const handleInputChange4 = (e) => {
     })
       .then((r) => r.json())
       .then((result) => handleUser(result))
-      // setAvatar(""),
-      // setUsername(""),
-      // setUpdatedUser(""),
-      // setUsername(""),
-      // setLastname(""),
-      // setFirstname(""),
-      // setEmail("")
+      
   }
 
   const handleSubmit = (e) => {
@@ -73,13 +97,16 @@ const handleInputChange4 = (e) => {
     
 
   return (
+    <>
     <li className="card3">
         <br></br>
       <img className="cards" src={user.avatar} alt={user.username} />
-      <h1>{user.username}</h1>
-      <h2>{user.first_name}</h2>
-      <h1>{user.last_name}</h1>
-      <p>{user.email}</p>
+      <h2>username: {user.username}</h2>
+      <h4>{user.first_name}</h4>
+      <h4>{user.last_name}</h4>
+      <p>Email: {user.email}</p>
+      <button id="button1" className="emoji-button delete" onClick={handleClick}>Change User</button>
+          {showDetails ?
       <form onSubmit={handleSubmit} >
       <input 
         type="text"
@@ -118,8 +145,12 @@ const handleInputChange4 = (e) => {
       />
       <button onClick={updateUser}>Change Avatar</button>
       </form>
-      
+       : null}
+      <button className="deleteButtons" onClick={handleDelete}>Remove User</button>
       </li>
+      <UserOrders order={order}>My orders</UserOrders>
+      {submitBobasInOrder}
+      </>
         );
 }
 export default User;

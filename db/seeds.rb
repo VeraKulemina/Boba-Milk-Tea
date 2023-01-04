@@ -1,21 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-Boba.create(name: "Tapioca Milk Tea", image: "/images/boba1.png", price: 5.49)
-Boba.create(name: "Rose Milk Tea", image: "/images/boba2.png", price: 5.49)
-Boba.create(name: "Thai Tea", image: "/images/boba3.png", price: 5.49)
-Boba.create(name: "Almond Milk Tea", image: "/images/boba4.png", price: 5.49)
-Boba.create(name: "Brown Sugar Milk Tea", image: "/images/boba5.png", price: 5.49)
-Boba.create(name: "Winter Melon Milk Tea", image: "/images/boba6.png", price: 5.49)
-Boba.create(name: "Coconut Milk Tea", image: "/images/boba7.png", price: 5.49)
-Boba.create(name: "Strawberry Pudding", image: "/images/boba8.png", price: 5.49)
-Boba.create(name: "Taro Milk Drink", image: "/images/boba9.png", price: 5.49)
-Boba.create(name: "Honey Dew Milk Drink", image: "/images/boba1.png", price: 5.49)
-Boba.create(name: "Matcha Ice Cream Milk Green Tea", image: "/images/boba2.png", price: 5.49)
+puts("seed boba...")
+
+
+Boba.create(name: "Tapioca Milk Tea", image: "/images/boba1.png", price: 5.49, category: "Seasonal Specials")
+Boba.create(name: "Rose Milk Tea", image: "/images/boba2.png", price: 6.49, category: "Seasonal Specials")
+Boba.create(name: "Thai Tea Almond Milk", image: "/images/boba3.png", price: 5.19, category: "Seasonal Specials")
+Boba.create(name: "Almond Milk Tea", image: "/images/boba4.png", price: 5.49, category: "Seasonal Specials")
+Boba.create(name: "Brown Sugar Milk Tea", image: "/images/boba5.png", price: 5.49, category: "Seasonal Specials")
+Boba.create(name: "Winter Melon Milk Tea", image: "/images/boba6.png", price: 5.49, category: "Seasonal Specials")
+Boba.create(name: "Coconut Milk Tea", image: "/images/boba7.png", price: 5.39, category: "Seasonal Specials")
+Boba.create(name: "Strawberry Pudding", image: "/images/boba8.png", price: 5.49, category: "Seasonal Specials")
+# Boba.create(name: "Taro Milk Drink", image: "/images/boba9.png", price: 5.49, category: "Seasonal Specials")
+Boba.create(name: "Honey Dew Milk Drink", image: "/images/boba1.png", price: 5.49, category: "Matcha & Hojicha")
+Boba.create(name: "Matcha Ice Cream Milk Green Tea", image: "/images/boba2.png", price: 5.49, category: "Matcha & Hojicha")
+Boba.create(name: "Pandan Caramel Matcha", image: "/images/boba10.png", price: 6.49, category: "Matcha & Hojicha")
+Boba.create(name: "Black Sesame Latte", image: "/images/boba11.png", price: 6.19, category: "Matcha & Hojicha")
+Boba.create(name: "Grape Oolong", image: "/images/boba12.png", price: 6.19, category: "Matcha & Hojicha")
+Boba.create(name: "Yuzu Toddy", image: "/images/boba13.png", price: 6.49, category: "Matcha & Hojicha")
+Boba.create(name: "Spiced Mocha", image: "/images/boba14.png", price: 6.49, category: "Matcha & Hojicha")
+Boba.create(name: "Chocochata", image: "/images/boba15.png", price: 6.49, category: "Matcha & Hojicha")
+Boba.create(name: "Classic Black", image: "/images/boba16.png", price: 5.49, category: "Specialty")
+Boba.create(name: "Hibiscus Mint Iced Tea", image: "/images/boba17.png", price: 5.49, category: "Specialty")
+Boba.create(name: "Strawberry Matcha Latte", image: "/images/boba18.png", price: 5.49, category: "Specialty")
+Boba.create(name: "Matcha Latte", image: "/images/boba19.png", price: 6.49, category: "Specialty")
+Boba.create(name: "Black Sugar Hojicha", image: "/images/boba20.png", price: 6.49, category: "Specialty")
+Boba.create(name: "Thai Tea", image: "/images/boba21.png", price: 7.49, category: "Specialty")
+Boba.create(name: "Strawberry Fields", image: "/images/boba22.png", price: 7.49, category: "Specialty")
+Boba.create(name: "Ube Latte", image: "/images/boba23.png", price: 7.49, category: "Fruit Frescas")
+Boba.create(name: "Strawberry Jasmine", image: "/images/boba24.png", price: 7.49, category: "Fruit Frescas")
+Boba.create(name: "Lychee Oolong", image: "/images/boba25.png", price: 6.49, category: "Fruit Frescas")
+Boba.create(name: "Berry Hibiscus", image: "/images/boba26.png", price: 5.49, category: "Fruit Frescas")
+
+
+
+puts("seed ingredients...")
+
 
 Ingredient.create(name: "Mini Boba")
 Ingredient.create(name: "Three Color Jelly")
@@ -36,4 +54,4 @@ Ingredient.create(name: "Sugar level: 0%")
 Ingredient.create(name: "Ice level: 0%")
 Ingredient.create(name: "Ice level: 50%")
 
-
+puts("done seeding...")

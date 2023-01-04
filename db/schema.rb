@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
     t.integer "boba_id", null: false
     t.integer "order_id", null: false
     t.integer "quantity"
-    t.integer "int_arr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["boba_id"], name: "index_boba_orders_on_boba_id"
@@ -35,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
     t.string "name"
     t.string "image"
     t.float "price"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_223331) do
 
   create_table "orders", force: :cascade do |t|
     t.date "date"
+    t.string "comment"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

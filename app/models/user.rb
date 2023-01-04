@@ -18,5 +18,8 @@ class User < ApplicationRecord
     # # Validate the presence and format of the password attribute
     # validates :password, presence: true
     # , format: { with: VALID_PASSWORD_REGEX }
+    has_many :orders, dependent: :destroy
+    
+    
 
   end

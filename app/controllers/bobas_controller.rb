@@ -10,7 +10,7 @@ class BobasController < ApplicationController
     end
 
     def create
-        boba =  Boba.create! (boba_params)
+        boba =  Boba.create!(boba_params)
         render json: boba, status: :created
     end
 

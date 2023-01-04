@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+    wrap_parameters format: []
+    
     def index
         render json: Order.all
     end
@@ -6,11 +9,11 @@ class OrdersController < ApplicationController
 
     def show
         order =  Order.find(params[:id])  
-        render json: order
+        render json: order, serializer: OrderWithBobaSerializer
     end
 
     def create
-        order =  Order.create! (order_params)
+        order =  Order.create!(order_params)
         render json: order, status: :created
     end
 
@@ -32,6 +35,6 @@ class OrdersController < ApplicationController
 
     private
         def order_params
-            params.require(:order).permit(:date, :boba_id, :comment)
+            params.permit(:id, :date, :user_id, :comment)
         end
 end
