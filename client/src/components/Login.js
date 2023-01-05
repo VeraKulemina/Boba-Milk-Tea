@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { useHistory } from "react-router-dom"
+
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
+
   // const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -22,6 +26,7 @@ function Login({ setUser }) {
       } else {
         r.json().then((data) => setErrors(data.error));
       }
+      history.push("/bobas")
     });
   }
 

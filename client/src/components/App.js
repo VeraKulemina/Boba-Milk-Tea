@@ -4,7 +4,7 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import CoffeeBar from "./CoffeeBar";
-import Home from "./Home";
+// import Home from "./Home";
 import Bobas from "./Bobas.js";
 import User from "./User";
 import Order from "./Order.js";
@@ -99,19 +99,22 @@ function App() {
     }
   }
 
-  const decrementBobaInOrder = (id, event) =>  {
+  const decrementBobaInOrder = (id, orderId, event) =>  {
     setBobaId(id)
     const checkBobas = JSON.parse(localStorage.getItem('cart'));
-    const localBoba = checkBobas.find((boba) => boba.id === id);
-
+    let localBoba = checkBobas.find((boba) => boba.id === id);
+    // localBoba = JSON.parse(localBoba);
+    const findOrderIndex = localBoba.orders.findIndex((order) => order.id === orderId);
+    console.log(orderId, findOrderIndex);
     if(localBoba.quantity === 1){
       handleRemoveBobaFromOrder(localBoba);
     } else {
-      const localBobaIndex = checkBobas.findIndex((boba) => boba.id === id);
       localBoba.quantity -= 1;
+      localBoba.orders = localBoba.orders.filter((order) => order.id !== orderId);
+      const localBobaIndex = checkBobas.findIndex((boba) => boba.id === id);
       checkBobas[localBobaIndex] = localBoba;
       localStorage.setItem('cart', JSON.stringify(checkBobas));
-      setOrder(checkBobas);
+      setOrder(checkBobas);     
     }
   }
 
@@ -191,9 +194,9 @@ function App() {
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
-            <Route path="/">
+            {/* <Route path="/">
               <Home />
-            </Route>
+            </Route> */}
           </Switch>
         )}
       </main>

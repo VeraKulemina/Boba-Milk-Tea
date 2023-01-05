@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
+
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
@@ -6,6 +8,8 @@ function SignUp({ setUser }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([])
+  const history = useHistory()
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +37,8 @@ function SignUp({ setUser }) {
             setErrors(data.errors)
           });
       }
+      history.push("/bobas")
+
     })
   }
 

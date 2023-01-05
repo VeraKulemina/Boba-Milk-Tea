@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import IndividualOrder from './IndividualOrder.js';
 
 function OrderRender({or, onItemClick, handleOrder, decrementBobaInOrder, renderOrder}) {
@@ -10,6 +10,7 @@ function OrderRender({or, onItemClick, handleOrder, decrementBobaInOrder, render
     id={order.id}
     comment={order.comment} 
     or={id}
+    decrementBobaInOrder={decrementBobaInOrder}
     />
   ));
 
@@ -29,7 +30,7 @@ function OrderRender({or, onItemClick, handleOrder, decrementBobaInOrder, render
           <p className="cart-text">Total: {or.quantity}</p>
           <button className="cart-title32" onClick={(event) => handleOrder(id, event)}>+</button>
           <br />
-          <button className="cart-title32" onClick={(event) => decrementBobaInOrder(id, event)}>-</button>
+          {/* <button className="cart-title32" onClick={(event) => decrementBobaInOrder(id, event)}>-</button> */}
           {orderList}
           <br></br>
       <button className="cart-button" id="red" onClick={handleClick} >delete from the order</button>

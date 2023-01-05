@@ -5,9 +5,9 @@ import OrderRender from './OrderRender.js';
 
 
   function Order({ onremoveBoba, order, submitBobasInOrder, handleOrder, decrementBobaInOrder, orderId}) {
-    //console.log(order);
+
     const orderList = order.map((or) => (
-        <OrderRender key={or.id} or={or} onItemClick={onremoveBoba} handleOrder={handleOrder} decrementBobaInOrder={decrementBobaInOrder} orderId={orderId} renderOrder={or.orders}/>
+        <OrderRender key={or.id} or={or} onItemClick={onremoveBoba} handleOrder={handleOrder} decrementBobaInOrder={decrementBobaInOrder} orderId={orderId} renderOrder={or.orders} />
       ));
 
   
@@ -27,6 +27,8 @@ import OrderRender from './OrderRender.js';
 
     return (
         <div>
+          <br />
+          
           <h2>My Order</h2>
           {orderList}
           <button className="cart-button" id="green" onClick={submitBobasInOrder}>Submit Order!</button>

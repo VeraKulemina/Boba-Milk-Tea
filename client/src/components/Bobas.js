@@ -26,7 +26,9 @@ function Bobas({handleOrder, user}) {
         <main>
             <div>
                 <br />
-                <h1 className="bobas">Boba Selection</h1>
+                <br />
+                <br />
+                <h2 className="bobas">Boba Selection</h2>
                 <Search setSearchTerm = {setSearchTerm} searchTerm = {searchTerm} />
                 <BobaRender category={"Specialty"} bobas={searchBoba} handleOrder={handleOrder} user={user}/>
                 <BobaRender category={"Matcha & Hojicha"} bobas={searchBoba} handleOrder={handleOrder} user={user}/>

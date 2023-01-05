@@ -1,7 +1,7 @@
 import React from "react";
 
 function UserOrderCard({id, boba_id, order_id, quantity, order}) {
-    const name = order.map((or) => or.name);
+    // const name = order.map((or) => or.name);
     return (
         <div>
       <li className="card">

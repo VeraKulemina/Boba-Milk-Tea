@@ -403,4 +403,6 @@ background-color: white;
     padding: 0;
   }
 
-  
+  .link {
+      border-radius: 5px;
+    }
